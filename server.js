@@ -54,6 +54,7 @@ app.use('*all', async (req, res) => {
     const rendered = await render(url)
 
     const html = template
+      .replace("<!--headTags-->", rendered.payload.headTags)
       .replace(`<!--app-head-->`, rendered.head ?? '')
       .replace(`<!--app-html-->`, rendered.html ?? '')
 
